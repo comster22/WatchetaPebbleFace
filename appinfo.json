@@ -1,0 +1,23 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "rsh.vishal@gmail.com",
+    "longName": "Project1",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "3",
+    "shortName": "Project1",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
+    "uuid": "2d9d37da-7c2b-467d-b0bf-45d8d266fa71",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
