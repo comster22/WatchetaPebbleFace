@@ -1,2 +1,2 @@
-# PebbleWatchFace
-Working Pebble watchface prototype
+# PebbleWatchFace - DBZ
+Working Pebble watchface. First pebble app.
