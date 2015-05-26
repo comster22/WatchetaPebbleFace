@@ -4,13 +4,35 @@
         ""
     ],
     "companyName": "rsh.vishal@gmail.com",
-    "longName": "Project1",
+    "longName": "DBZ Saiyan",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/dzb_pbw.png",
+                "menuIcon": true,
+                "name": "IMAGE_DBZ_MENU",
+                "type": "png"
+            },
+            {
+                "file": "images/dbz.png",
+                "name": "IMAGE_DBZ",
+                "type": "png"
+            },
+            {
+                "file": "fonts/Chewy.ttf",
+                "name": "FONT_CHEWY_28",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Slabo27px-Regular.ttf",
+                "name": "FONT_SLABO_27",
+                "type": "font"
+            }
+        ]
     },
     "sdkVersion": "3",
-    "shortName": "Project1",
+    "shortName": "DBZ",
     "targetPlatforms": [
         "aplite",
         "basalt"
@@ -18,6 +40,6 @@
     "uuid": "2d9d37da-7c2b-467d-b0bf-45d8d266fa71",
     "versionLabel": "1.0",
     "watchapp": {
-        "watchface": false
+        "watchface": true
     }
 }
