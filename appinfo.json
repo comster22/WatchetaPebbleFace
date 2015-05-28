@@ -1,7 +1,10 @@
 {
-    "appKeys": {},
+    "appKeys": {
+        "KEY_CONDITIONS": 1,
+        "KEY_TEMPERATURE": 0
+    },
     "capabilities": [
-        ""
+        "location"
     ],
     "companyName": "rsh.vishal@gmail.com",
     "longName": "DBZ Saiyan",
@@ -9,7 +12,7 @@
     "resources": {
         "media": [
             {
-                "file": "images/dzb_pbw.png",
+                "file": "images/dbz_menu.png",
                 "menuIcon": true,
                 "name": "IMAGE_DBZ_MENU",
                 "type": "png"
@@ -21,12 +24,12 @@
             },
             {
                 "file": "fonts/Chewy.ttf",
-                "name": "FONT_CHEWY_28",
+                "name": "FONT_CHEWY_18",
                 "type": "font"
             },
             {
-                "file": "fonts/Slabo27px-Regular.ttf",
-                "name": "FONT_SLABO_27",
+                "file": "fonts/Chewy.ttf",
+                "name": "FONT_CHEWY_30",
                 "type": "font"
             }
         ]
