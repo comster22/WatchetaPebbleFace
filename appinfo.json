@@ -24,12 +24,17 @@
             },
             {
                 "file": "fonts/Chewy.ttf",
-                "name": "FONT_CHEWY_18",
+                "name": "FONT_CHEWY_14",
                 "type": "font"
             },
             {
                 "file": "fonts/Chewy.ttf",
                 "name": "FONT_CHEWY_30",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Chewy.ttf",
+                "name": "FONT_CHEWY_16",
                 "type": "font"
             }
         ]

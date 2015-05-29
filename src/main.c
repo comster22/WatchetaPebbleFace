@@ -5,9 +5,11 @@
 static Window *s_main_window;
 
 static TextLayer *s_time_layer;
+static TextLayer *s_date_layer;
 static TextLayer *s_weather_layer;
 
 static GFont s_time_font;
+static GFont s_date_font;
 static GFont s_weather_font;
 
 static BitmapLayer *s_background_layer;
@@ -19,19 +21,23 @@ static void update_time() {
   struct tm *tick_time = localtime(&temp);
   
   //   Create a long-lived buffer
-  static char buffer[] = "00:00";
+  static char time_buffer[] = "00:00";
+  static char date_buffer[] = "01 Jan";
   
   //   Write the current hours and minutes into the buffer
   if(clock_is_24h_style() == true)
     // Use 24 hour format
-    strftime(buffer, sizeof("00:00"), "%H:%M", tick_time);
+    strftime(time_buffer, sizeof("00:00"), "%H:%M", tick_time);
   else
     // Use 12 hour format
-    strftime(buffer, sizeof("00:00"), "%I:%M", tick_time);
+    strftime(time_buffer, sizeof("00:00"), "%I:%M", tick_time);
+  
+  // Write the current day of month and month into the buffer
+  strftime(date_buffer, sizeof("01 Jan"), "%d %b", tick_time);
   
   // Display this time on the TextLayer
-  text_layer_set_text(s_time_layer, buffer);
-  
+  text_layer_set_text(s_time_layer, time_buffer);
+  text_layer_set_text(s_date_layer, date_buffer);
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
@@ -72,25 +78,41 @@ static void main_window_load(Window *window) {
   // Add it to the child layer to the Window's root layer
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
   
+  // Create date TextLayer
+  s_date_layer = text_layer_create(GRect(35, 70, 144, 25));
+  text_layer_set_background_color(s_date_layer, GColorClear);
+  text_layer_set_text_color(s_date_layer, GColorBlack);
+  
+  s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CHEWY_16));
+  text_layer_set_font(s_date_layer, s_date_font);
+  text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
+   
+  // Add it to the child layer to the Window's root layer
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
+  
   // Create weather TextLayer
-  s_weather_layer = text_layer_create(GRect(35, 70, 144, 50));
+  s_weather_layer = text_layer_create(GRect(35, 93, 144, 25));
   text_layer_set_background_color(s_weather_layer, GColorClear);
   text_layer_set_text_color(s_weather_layer, GColorBlack);
   text_layer_set_text_alignment(s_weather_layer, GTextAlignmentCenter);
   text_layer_set_text(s_weather_layer, "Loading...");
   
   // Create second custom font, apply it and add to the Window
-  s_weather_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CHEWY_18));
+  s_weather_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CHEWY_14));
   text_layer_set_font(s_weather_layer, s_weather_font);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_weather_layer));
 }
   
 
 static void main_window_unload(Window *window) {
-  // Destroy TextLayer
+  // Destroy time TextLayer
   text_layer_destroy(s_time_layer);
-  // Destroy GFont
+  // Destroy date TextLayer
+  text_layer_destroy(s_date_layer);
+  // Destroy time GFont
   fonts_unload_custom_font(s_time_font);
+  // Destroy date GFont
+  fonts_unload_custom_font(s_date_font);
   // Destroy GBitmap
   gbitmap_destroy(s_background_bitmap);
   // Destroy BitmapLayer
