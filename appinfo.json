@@ -7,24 +7,13 @@
         "location"
     ],
     "companyName": "Vishal Ravishankar",
-    "longName": "DBZ Vegeta",
+    "longName": "Watcheta",
     "projectType": "native",
     "resources": {
         "media": [
             {
-                "file": "images/dbz_menu.png",
-                "menuIcon": true,
-                "name": "IMAGE_DBZ_MENU",
-                "type": "png"
-            },
-            {
-                "file": "images/dbz.png",
-                "name": "IMAGE_DBZ",
-                "type": "png"
-            },
-            {
                 "file": "fonts/Chewy.ttf",
-                "name": "FONT_CHEWY_14",
+                "name": "FONT_CHEWY_16",
                 "type": "font"
             },
             {
@@ -34,13 +23,24 @@
             },
             {
                 "file": "fonts/Chewy.ttf",
-                "name": "FONT_CHEWY_16",
+                "name": "FONT_CHEWY_14",
                 "type": "font"
+            },
+            {
+                "file": "images/dbz.png",
+                "name": "IMAGE_DBZ",
+                "type": "png"
+            },
+            {
+                "file": "images/dbz_menu.png",
+                "menuIcon": true,
+                "name": "IMAGE_DBZ_MENU",
+                "type": "png"
             }
         ]
     },
     "sdkVersion": "3",
-    "shortName": "DBZ",
+    "shortName": "Watcheta",
     "targetPlatforms": [
         "aplite",
         "basalt"
