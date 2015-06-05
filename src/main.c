@@ -22,7 +22,7 @@ static void update_time() {
   
   //   Create a long-lived buffer
   static char time_buffer[] = "00:00";
-  static char date_buffer[] = "01 Jan";
+  static char date_buffer[] = "Jan 01";
   
   //   Write the current hours and minutes into the buffer
   if(clock_is_24h_style() == true)
@@ -33,7 +33,7 @@ static void update_time() {
     strftime(time_buffer, sizeof("00:00"), "%I:%M", tick_time);
   
   // Write the current day of month and month into the buffer
-  strftime(date_buffer, sizeof("01 Jan"), "%d %b", tick_time);
+  strftime(date_buffer, sizeof("Jan 01"), "%b %d", tick_time);
   
   // Display this time on the TextLayer
   text_layer_set_text(s_time_layer, time_buffer);
@@ -60,12 +60,12 @@ static void main_window_load(Window *window) {
   
   // Create GBitmap, then set to created BitmapLayer
   s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_DBZ);
-  s_background_layer = bitmap_layer_create(GRect(-25, 0, 144, 168));
+  s_background_layer = bitmap_layer_create(GRect(-28, 0, 144, 168));
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_background_layer));
   
   // Create time TextLayer
-  s_time_layer = text_layer_create(GRect(35, 35, 144, 50));
+  s_time_layer = text_layer_create(GRect(67, 35, 75, 50));
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorBlack);
   
@@ -79,7 +79,7 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
   
   // Create date TextLayer
-  s_date_layer = text_layer_create(GRect(35, 70, 144, 25));
+  s_date_layer = text_layer_create(GRect(67, 70, 75, 25));
   text_layer_set_background_color(s_date_layer, GColorClear);
   text_layer_set_text_color(s_date_layer, GColorBlack);
   
@@ -91,7 +91,7 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_date_layer));
   
   // Create weather TextLayer
-  s_weather_layer = text_layer_create(GRect(35, 93, 144, 25));
+  s_weather_layer = text_layer_create(GRect(67, 93, 75, 25));
   text_layer_set_background_color(s_weather_layer, GColorClear);
   text_layer_set_text_color(s_weather_layer, GColorBlack);
   text_layer_set_text_alignment(s_weather_layer, GTextAlignmentCenter);
