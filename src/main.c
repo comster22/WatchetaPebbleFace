@@ -65,13 +65,16 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_background_layer));
   
   // Create time TextLayer
-  s_time_layer = text_layer_create(GRect(67, 35, 75, 50));
+  s_time_layer = text_layer_create(GRect(67, 35, 76, 40));
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorBlack);
   
   // Improve the layout to be more like a watchface
   // Create GFont
   s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CHEWY_30));
+#ifdef PBL_COLOR
+  text_layer_set_text_color(s_time_layer, GColorRed);
+#endif
   text_layer_set_font(s_time_layer, s_time_font);
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
    
@@ -84,6 +87,9 @@ static void main_window_load(Window *window) {
   text_layer_set_text_color(s_date_layer, GColorBlack);
   
   s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CHEWY_16));
+#ifdef PBL_COLOR
+  text_layer_set_text_color(s_date_layer, GColorDarkCandyAppleRed);
+#endif
   text_layer_set_font(s_date_layer, s_date_font);
   text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
    
@@ -99,6 +105,9 @@ static void main_window_load(Window *window) {
   
   // Create second custom font, apply it and add to the Window
   s_weather_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CHEWY_14));
+#ifdef PBL_COLOR
+  text_layer_set_text_color(s_weather_layer, GColorDarkCandyAppleRed);
+#endif  
   text_layer_set_font(s_weather_layer, s_weather_font);
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_weather_layer));
 }
@@ -175,7 +184,7 @@ static void init() {
     .load = main_window_load,
     .unload = main_window_unload
   });
-
+  
 #ifdef PBL_PLATFORM_APLITE
   // Set the window to be fullscreen
   window_set_fullscreen(s_main_window, true);
