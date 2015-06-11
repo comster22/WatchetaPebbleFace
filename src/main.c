@@ -71,7 +71,7 @@ static void main_window_load(Window *window) {
   
   // Improve the layout to be more like a watchface
   // Create GFont
-  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CHEWY_30));
+  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_CHEWY_28));
 #ifdef PBL_COLOR
   text_layer_set_text_color(s_time_layer, GColorRed);
 #endif

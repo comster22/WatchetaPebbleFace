@@ -13,17 +13,17 @@
         "media": [
             {
                 "file": "fonts/Chewy.ttf",
-                "name": "FONT_CHEWY_16",
-                "type": "font"
-            },
-            {
-                "file": "fonts/Chewy.ttf",
-                "name": "FONT_CHEWY_30",
-                "type": "font"
-            },
-            {
-                "file": "fonts/Chewy.ttf",
                 "name": "FONT_CHEWY_14",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Chewy.ttf",
+                "name": "FONT_CHEWY_28",
+                "type": "font"
+            },
+            {
+                "file": "fonts/Chewy.ttf",
+                "name": "FONT_CHEWY_16",
                 "type": "font"
             },
             {
@@ -46,7 +46,7 @@
         "basalt"
     ],
     "uuid": "2d9d37da-7c2b-467d-b0bf-45d8d266fa71",
-    "versionLabel": "1.2",
+    "versionLabel": "1.3",
     "watchapp": {
         "watchface": true
     }
