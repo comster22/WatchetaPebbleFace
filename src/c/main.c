@@ -1,6 +1,7 @@
 #include <pebble.h>
 #define KEY_TEMPERATURE 0
 #define KEY_CONDITIONS 1
+#define KEY_SWITCHTEMP 2
   
 static Window *s_main_window;
 
@@ -145,7 +146,10 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
     // Which key was received?
     switch(t->key) {
       case KEY_TEMPERATURE:
-        snprintf(temperature_buffer, sizeof(temperature_buffer), "%dF", (int)t->value->int32);
+        if (strcmp(t->value->cstring, "C") == 0)
+          snprintf(temperature_buffer, sizeof(temperature_buffer), "%dC", (int)t->value->int32);
+        else
+          snprintf(temperature_buffer, sizeof(temperature_buffer), "%dF", (int)t->value->int32);
         break;
       case KEY_CONDITIONS:
         snprintf(conditions_buffer, sizeof(conditions_buffer), "%s", t->value->cstring);
@@ -185,7 +189,7 @@ static void init() {
     .unload = main_window_unload
   });
   
-#ifdef PBL_PLATFORM_APLITE
+#ifdef PBL_SDK_2
   // Set the window to be fullscreen
   window_set_fullscreen(s_main_window, true);
 #endif

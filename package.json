@@ -1,0 +1,60 @@
+{
+    "author": "Vishal Ravi Shankar",
+    "dependencies": {},
+    "keywords": [],
+    "name": "watcheta",
+    "pebble": {
+        "capabilities": [
+            "location",
+            "configurable"
+        ],
+        "displayName": "Watcheta",
+        "enableMultiJS": false,
+        "messageKeys": {
+            "KEY_CONDITIONS": 1,
+            "KEY_TEMPERATURE": 0
+        },
+        "projectType": "native",
+        "resources": {
+            "media": [
+                {
+                    "file": "images/dbz.png",
+                    "name": "IMAGE_DBZ",
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/dbz_menu.png",
+                    "menuIcon": true,
+                    "name": "IMAGE_DBZ_MENU",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "fonts/Chewy.ttf",
+                    "name": "FONT_CHEWY_14",
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/Chewy.ttf",
+                    "name": "FONT_CHEWY_28",
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/Chewy.ttf",
+                    "name": "FONT_CHEWY_16",
+                    "type": "font"
+                }
+            ]
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt"
+        ],
+        "uuid": "2d9d37da-7c2b-467d-b0bf-45d8d266fa71",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.4.0"
+}
